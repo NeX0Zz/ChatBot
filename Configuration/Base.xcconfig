@@ -1,0 +1,12 @@
+// Build settings shared by Debug and Release. Values reach the app through Configuration/Info.plist.
+// Secrets.example.xcconfig holds the test-assignment credentials so a fresh clone runs as is;
+// a git-ignored Secrets.xcconfig, when present, overrides them with your own keys.
+
+#include "Secrets.example.xcconfig"
+#include? "Secrets.xcconfig"
+
+// `/$()/` keeps xcconfig from treating `//` as the start of a comment.
+CHAT_API_BASE_URL = https:/$()/nebulaapps.site/dola
+VIDEO_API_BASE_URL = https:/$()/nebulaapps.site/pixverse
+API_APPLICATION_ID = com.test.test
+APPHUD_PAYWALL_ID = main

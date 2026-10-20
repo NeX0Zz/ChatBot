@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>APIApplicationID</key>
+	<string>$(API_APPLICATION_ID)</string>
+	<key>APIBearerToken</key>
+	<string>$(API_BEARER_TOKEN)</string>
+	<key>ApphudAPIKey</key>
+	<string>$(APPHUD_API_KEY)</string>
+	<key>ApphudPaywallID</key>
+	<string>$(APPHUD_PAYWALL_ID)</string>
+	<key>ChatAPIBaseURL</key>
+	<string>$(CHAT_API_BASE_URL)</string>
+	<key>VideoAPIBaseURL</key>
+	<string>$(VIDEO_API_BASE_URL)</string>
+</dict>
+</plist>

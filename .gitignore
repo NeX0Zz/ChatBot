@@ -1,0 +1,41 @@
+# Xcode
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Secrets (copy Configuration/Secrets.example.xcconfig to create it)
+Configuration/Secrets.xcconfig
+
+# AI assistants and local tooling
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.cursor/
+.cursorrules
+.aider*
+.codex/
+
+# Local design workspace (Figma dumps, export scripts, working notes)
+design/
+
+# macOS / editors
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.vscode/
+.idea/
+*.swp

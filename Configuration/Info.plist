@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>APIApplicationID</key>
-	<string>$(API_APPLICATION_ID)</string>
+	<string>com.test.test</string>
 	<key>APIBearerToken</key>
-	<string>$(API_BEARER_TOKEN)</string>
+	<string>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJzaGFyb3ZfMTk5OUBsaXN0LnJ1Iiwicm9sZSI6IkFETUlOIiwiZXhwIjo0OTM1MjA4NjcxLCJpYXQiOjE3ODE2MDg2NzEsInR5cGUiOiJhY2Nlc3MifQ.0GRnZq1LZA__0G0tYEsPER8lQiCiX_myE6_T_nMwUmc</string>
 	<key>ApphudAPIKey</key>
-	<string>$(APPHUD_API_KEY)</string>
+	<string>app_FmCjFTwjWpcLSafxT8vCDeVffJyfFS</string>
 	<key>ApphudPaywallID</key>
-	<string>$(APPHUD_PAYWALL_ID)</string>
+	<string>main</string>
 	<key>ChatAPIBaseURL</key>
-	<string>$(CHAT_API_BASE_URL)</string>
+	<string>https://nebulaapps.site/dola</string>
 	<key>VideoAPIBaseURL</key>
-	<string>$(VIDEO_API_BASE_URL)</string>
+	<string>https://nebulaapps.site/pixverse</string>
 </dict>
 </plist>

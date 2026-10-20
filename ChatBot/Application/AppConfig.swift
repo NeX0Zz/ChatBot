@@ -1,8 +1,7 @@
 import Foundation
 import OSLog
 
-/// Runtime configuration. Endpoints and keys come from Info.plist, which is filled from
-/// Configuration/Base.xcconfig and the git-ignored Configuration/Secrets.xcconfig at build time.
+/// Runtime configuration. Endpoints and keys are read from the app's Info.plist (Configuration/Info.plist).
 enum AppConfig {
     enum API {
         static let chatBaseURL = url(for: "ChatAPIBaseURL")
@@ -27,10 +26,8 @@ enum AppConfig {
     }
 
     private static func value(for key: String) -> String {
-        guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String,
-              !value.isEmpty, !value.hasPrefix("$(") else {
-            Logger(subsystem: "com.labs.fviu", category: "config")
-                .fault("\(key) is missing: create Configuration/Secrets.xcconfig from Secrets.example.xcconfig")
+        guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String, !value.isEmpty else {
+            Logger(subsystem: "com.labs.fviu", category: "config").fault("\(key) is missing from Info.plist")
             assertionFailure("\(key) is missing from Info.plist")
             return ""
         }

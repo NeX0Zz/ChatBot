@@ -15,9 +15,6 @@ xcuserdata/
 .build/
 .swiftpm/
 
-# Secrets (copy Configuration/Secrets.example.xcconfig to create it)
-Configuration/Secrets.xcconfig
-
 # AI assistants and local tooling
 .claude/
 CLAUDE.md

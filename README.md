@@ -58,7 +58,7 @@ Pick the **ChatBot** scheme and an iPhone simulator, then run. No setup is neede
 
 **Purchases on the simulator.** The scheme attaches `Store.storekit`, which mirrors the Apphud `main` paywall products (`week_4.99_nottrial`, `year_39.99_nottrial`). A run from Xcode shows real prices and completes test purchases. On a device, use a sandbox Apple ID.
 
-**Configuration.** API endpoints and keys are not in Swift code. `Configuration/Base.xcconfig` and `Configuration/Secrets.example.xcconfig` fill `Configuration/Info.plist`, and `AppConfig` reads that plist at runtime. To use different keys, put the same settings into a git-ignored `Configuration/Secrets.xcconfig`; it overrides the defaults.
+**Configuration.** API endpoints and keys are not in Swift code. They are stored in the app's `Configuration/Info.plist` (`ChatAPIBaseURL`, `VideoAPIBaseURL`, `APIApplicationID`, `APIBearerToken`, `ApphudAPIKey`, `ApphudPaywallID`), and `AppConfig` reads them at runtime.
 
 ## Feature tour
 
@@ -110,7 +110,7 @@ ChatBot/
 ├── Services/      App-lifetime state: ChatStore, VideoGenerationCoordinator, VideoTemplatesStore, SubscriptionManager
 ├── Presentation/  DesignSystem (tokens + components), Root navigation, Features/<Screen> (View + ViewModel)
 └── Resources/     Fonts, Lottie animation, String Catalog, privacy manifest
-Configuration/     xcconfig files and Info.plist template
+Configuration/     Info.plist with API endpoints and keys
 ChatBotTests/      Swift Testing suites mirroring Data / Domain / Services
 ```
 
@@ -187,7 +187,7 @@ flowchart LR
 
 ## Security and privacy
 
-- No secrets in Swift code. Configuration comes from xcconfig through Info.plist, and `Secrets.xcconfig` overrides are git-ignored.
+- No secrets in Swift code: endpoints and keys are read from Info.plist through `AppConfig`.
 - App Transport Security is untouched; every endpoint is HTTPS.
 - Logging uses `os.Logger`, never writes tokens or message text, and Apphud debug logs are enabled only in `DEBUG`.
 - Files use `completeFileProtectionUntilFirstUserAuthentication`. An unreadable history file is moved aside instead of being silently overwritten.
@@ -231,4 +231,4 @@ xcodebuild test -project ChatBot.xcodeproj -scheme ChatBot \
 - **Format.** The template endpoint has no aspect-ratio field, so the selected format is applied by cropping the photo before upload.
 - **Chat requests are tied to the screen.** Closing a chat cancels its in-flight reply. The message is kept, and reopening the chat offers Try again. Video jobs, which take minutes, run in the background instead.
 - **Placeholders.** The Privacy, Terms and Usage links, the support e-mail and the App Store link in `AppConfig.Links` stand in for real product URLs.
-- **Credentials.** The API token and Apphud key in `Secrets.example.xcconfig` are the ones issued with the assignment. They are kept so the project runs immediately.
+- **Credentials.** The API token and Apphud key in `Configuration/Info.plist` are the ones issued with the assignment, so the project runs without setup. A production app would get the token from its own backend.
